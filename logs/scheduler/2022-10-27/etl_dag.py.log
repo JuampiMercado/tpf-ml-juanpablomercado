@@ -1,0 +1,4 @@
+[2022-10-27T05:24:04.141+0000] {processor.py:156} INFO - Started process (PID=33) to work on /opt/airflow/dags/etl_dag.py
+[2022-10-27T05:24:04.152+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/etl_dag.py for tasks to queue
+[2022-10-27T05:24:04.157+0000] {logging_mixin.py:117} INFO - [2022-10-27T05:24:04.157+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/etl_dag.py
+[2022-10-27T05:24:06.305+0000] {logging_mixin.py:117} INFO - [2022-10-27T05:24:06.304+0000] {process_utils.py:256} INFO - Waiting up to 5 seconds for processes to exit...
