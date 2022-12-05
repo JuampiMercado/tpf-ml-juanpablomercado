@@ -75,16 +75,12 @@ class dbManager():
         Session = sessionmaker(bind=engine)
         
         with Session() as session:   
-            print('Objetos: ' + str(len(objects))) 
-            i = 0
             for e in objects:
-                i = i+1
                 try:
                     session.merge(e)
                 except Exception as ex:
-                    print(ex)
+                    logging.error(ex)
             session.commit()
-            print('Ciclos: ' + str(i)) 
         
 
     

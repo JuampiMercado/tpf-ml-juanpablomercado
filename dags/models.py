@@ -1,5 +1,5 @@
 """Dummy data model definition."""
-from sqlalchemy import Column, String, Float, Numeric
+from sqlalchemy import Column, String, Float, Numeric,UniqueConstraint
 from sqlalchemy.orm import declarative_base
 
 
@@ -56,19 +56,21 @@ class Recommendation(Base):
     """Recommendation data model."""
 
     __tablename__ = "recommendations"
-    placeid = Column(Numeric, primary_key=True)
-    recommended_placeid = Column(Numeric, primary_key=True)
-    
+    recomendationid = Column(Numeric, primary_key=True, autoincrement=True)
+    placeid = Column(Numeric)
+    recommended_placeid = Column(Numeric)
+
+    __table_args__ = (UniqueConstraint('placeid', 'recommended_placeid', name='recommendation_unique'),)
 
     def __repr__(self):
-        return f"<Recommendation(placeid='{self.placeid}',recommendations='{self.recommendations}' )>"
+        return f"<Recommendation(placeid='{self.placeid}',recommended_placeid='{self.recommended_placeid}' )>"
 
-    def __init__(self,placeid,recommendations):
+    def __init__(self,placeid,recommended_placeid):
         self.placeid = placeid
-        self.recommendations = recommendations
+        self.recommended_placeid = recommended_placeid
         super(Recommendation, self).__init__()
     
     def __str__(self):
-        return f"placeid='{self.placeid}',recommendations='{self.recommendations}''"
+        return f"placeid='{self.placeid}',recommended_placeid='{self.recommended_placeid}''"
 
 

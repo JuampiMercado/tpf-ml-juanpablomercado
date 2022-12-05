@@ -3,16 +3,22 @@ import pandas as pd
 from models import Rating
 from dbManager import dbFactory
 import logging
+logging.basicConfig(level=logging.INFO)
+
 
 def etl_ratings():    
+    logging.info('Starting ETL ratings...')
+    logging.info('Reading from csv...')
     df = extract()
+    logging.info('Working with rating dataset...')
     arr = transform(df)
+    logging.info('Saving into database ' + str(len(arr)) + ' records' )
     load(arr)
+    logging.info('Operation finished.')
 
     
 def extract():
-    df = pd.read_csv('rating_final.csv',usecols=["userID","placeID","rating"])
-    print(df.count())
+    df = pd.read_csv('ratings.csv',usecols=["userID","placeID","rating"])
     return df
 
 def transform(df):
