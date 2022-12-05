@@ -9,8 +9,8 @@ logging.basicConfig(level=logging.INFO)
 from configuration import get_config
 aws = get_config("aws")
 
-logging.info('aws_access_key_id: '+ aws['aws_access_key_id'])
-logging.info('aws_secret_access_key: '+ aws['aws_secret_access_key'])
+#logging.info('aws_access_key_id: '+ aws['aws_access_key_id'])
+#logging.info('aws_secret_access_key: '+ aws['aws_secret_access_key'])
 #s3 = boto3.client('s3', aws_access_key_id=aws['aws_access_key_id'], aws_secret_access_key=aws['aws_secret_access_key'])
 s3 = boto3.resource(
     service_name='s3',
@@ -31,15 +31,9 @@ def etl_places():
     logging.info('Operation finished.')
 
     
-def extract():
-    #places = pd.read_csv('places.csv',usecols=["placeID","name","city","state","country"])
-    #s3 = boto3.resource('s3')
-    #ap = s3.Bucket('arn:aws:s3:::cdetpml:tpfaccesspoint-5yk47jsamg8xnz91qf6b4p57cwx3cuse1a-s3alias/[S3 Access Point name]')
-    #for obj in ap.objects.all():  
-    #    print(obj.key)  
-    #    print(obj.get()['Body'].read())
+def extract():    
     response = s3.Bucket('cdetpml').Object('places.csv').get()
-    places = pd.read_csv(io.BytesIO(response['Body'].read()))
+    places = pd.read_csv(io.BytesIO(response['Body'].read()),usecols=["placeID","name","city","state","country"])
     return places
 
 def transform(df):

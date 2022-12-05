@@ -4,7 +4,17 @@ from models import Rating
 from dbManager import dbFactory
 import logging
 logging.basicConfig(level=logging.INFO)
-
+from configuration import get_config
+aws = get_config("aws")
+import io
+import boto3
+s3 = boto3.resource(
+    service_name='s3',
+    region_name='us-east-1',
+    aws_access_key_id=aws['aws_access_key_id'],
+    aws_secret_access_key=aws['aws_secret_access_key'],
+    aws_session_token=aws['aws_session_token']
+)
 
 def etl_ratings():    
     logging.info('Starting ETL ratings...')
@@ -18,7 +28,9 @@ def etl_ratings():
 
     
 def extract():
-    df = pd.read_csv('ratings.csv',usecols=["userID","placeID","rating"])
+    #df = pd.read_csv('ratings.csv',usecols=["userID","placeID","rating"])
+    response = s3.Bucket('cdetpml').Object('ratings.csv').get()
+    df = pd.read_csv(io.BytesIO(response['Body'].read()),usecols=["userID","placeID","rating"])
     return df
 
 def transform(df):
