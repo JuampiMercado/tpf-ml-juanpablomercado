@@ -6,8 +6,12 @@ import boto3
 import io
 import logging
 logging.basicConfig(level=logging.INFO)
+from configuration import get_config
+aws = get_config("aws")
 
-s3 = boto3.client('s3')
+logging.info('aws_access_key_id: '+ aws['aws_access_key_id'])
+logging.info('aws_secret_access_key: '+ aws['aws_secret_access_key'])
+s3 = boto3.client('s3', aws_access_key_id=aws['aws_access_key_id'], aws_secret_access_key=aws['aws_secret_access_key'])
 
 
 def etl_places():
