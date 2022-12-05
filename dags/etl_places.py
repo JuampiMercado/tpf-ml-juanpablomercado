@@ -23,7 +23,12 @@ def etl_places():
     
 def extract():
     #places = pd.read_csv('places.csv',usecols=["placeID","name","city","state","country"])
-    response = s3.get_object(Bucket='cdetpml', Key='places.csv')
+    #s3 = boto3.resource('s3')
+    #ap = s3.Bucket('arn:aws:s3:::cdetpml:tpfaccesspoint-5yk47jsamg8xnz91qf6b4p57cwx3cuse1a-s3alias/[S3 Access Point name]')
+    #for obj in ap.objects.all():  
+    #    print(obj.key)  
+    #    print(obj.get()['Body'].read())
+    response = s3.get_object(Bucket='arn:aws:s3:us-east-1:296921149145:accesspoint/tpfaccesspoint', Key='places.csv')
     places = pd.read_csv(io.BytesIO(response['Body'].read()))
     return places
 
