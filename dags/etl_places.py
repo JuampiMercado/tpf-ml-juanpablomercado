@@ -16,7 +16,8 @@ s3 = boto3.resource(
     service_name='s3',
     region_name='us-east-1',
     aws_access_key_id=aws['aws_access_key_id'],
-    aws_secret_access_key=aws['aws_secret_access_key']
+    aws_secret_access_key=aws['aws_secret_access_key'],
+    aws_session_token=aws['aws_session_token']
 )
 
 def etl_places():
@@ -37,7 +38,7 @@ def extract():
     #for obj in ap.objects.all():  
     #    print(obj.key)  
     #    print(obj.get()['Body'].read())
-    response = s3.Bucket('arn:aws:s3:us-east-1:296921149145:accesspoint/tpfaccesspoint').Object('places.csv').get()
+    response = s3.Bucket('cdetpml').Object('places.csv').get()
     places = pd.read_csv(io.BytesIO(response['Body'].read()))
     return places
 
