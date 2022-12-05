@@ -70,6 +70,11 @@ x-airflow-common:
       condition: service_healthy
     postgres:
       condition: service_healthy
+  networks:
+    default:
+      external: true
+      name: app-tier
+
 
 services:
   postgres:
