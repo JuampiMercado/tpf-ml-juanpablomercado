@@ -11,8 +11,13 @@ aws = get_config("aws")
 
 logging.info('aws_access_key_id: '+ aws['aws_access_key_id'])
 logging.info('aws_secret_access_key: '+ aws['aws_secret_access_key'])
-s3 = boto3.client('s3', aws_access_key_id=aws['aws_access_key_id'], aws_secret_access_key=aws['aws_secret_access_key'])
-
+#s3 = boto3.client('s3', aws_access_key_id=aws['aws_access_key_id'], aws_secret_access_key=aws['aws_secret_access_key'])
+s3 = boto3.resource(
+    service_name='s3',
+    region_name='us-east-1',
+    aws_access_key_id=aws['aws_access_key_id'],
+    aws_secret_access_key=aws['aws_secret_access_key']
+)
 
 def etl_places():
     logging.info('Starting ETL places...')
@@ -32,7 +37,7 @@ def extract():
     #for obj in ap.objects.all():  
     #    print(obj.key)  
     #    print(obj.get()['Body'].read())
-    response = s3.get_object(Bucket='arn:aws:s3:us-east-1:296921149145:accesspoint/tpfaccesspoint', Key='places.csv')
+    response = s3.Bucket('arn:aws:s3:us-east-1:296921149145:accesspoint/tpfaccesspoint').Object('places.csv').get()
     places = pd.read_csv(io.BytesIO(response['Body'].read()))
     return places
 
