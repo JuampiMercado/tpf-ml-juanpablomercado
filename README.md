@@ -28,6 +28,8 @@ La solución cuenta con:
 
 ## Configuración local
 - Aplicación Airflow: <br>
-En una terminal, acceder al root del repositorio y ejecutar el comando "docker-compose up". Esto realizará las configuraciones básicas necesarias para la ejecución de airflow, y el dag necesario para la extracción, carga de datos y entrenamiento del modelo.
+En una terminal, acceder al root del repositorio y ejecutar el comando "docker-compose up". Esto realizará las configuraciones básicas necesarias para la ejecución de airflow, y el dag que realiza la extracción, carga de datos y entrenamiento del modelo.<br>
+La aplicación estará escuchando en el puerto 8080.
 - API: <br>
-En una terminal, acceder a la carpeta API de este repositorio. Allí se encuentran los fuentes necesarios para la ejecución de la API. Ejecutar el comando "bash start.sh", esto verificará si es necesario crear la imagen de docker e iniciará el container.<br> La aplicación estará escuchando en el puerto 80.
+En una terminal, acceder a la carpeta API de este repositorio. Allí se encuentran los fuentes necesarios para la ejecución de la API. Ejecutar el comando "bash start.sh", esto verificará si es necesario crear la imagen de docker e iniciará el container.<br> 
+La aplicación estará escuchando en el puerto 80.
