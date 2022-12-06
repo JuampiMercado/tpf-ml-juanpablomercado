@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, tuple_
+from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.dialects.postgresql import insert
