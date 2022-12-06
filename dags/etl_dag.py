@@ -12,7 +12,7 @@ from model_training import model_training
 
 with DAG(
     "etl_dag",
-    schedule_interval=timedelta(minutes=1),
+    schedule_interval=timedelta(minutes=60),
     start_date=datetime(2022, 11, 29),
     catchup=False,
 ) as dag:

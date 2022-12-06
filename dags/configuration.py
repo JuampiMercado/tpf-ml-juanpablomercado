@@ -2,15 +2,19 @@ env_dev = False
 
 prod_config = {
     "db_params": {
+        # "postgresql":{
+        #     "host":"postgres",
+        #     "port":"5432",
+        #     "database":"ETL",
+        #     "user":"airflow",
+        #     "password":"airflow"
+        # }
         "postgresql":{
-            "host":"postgres",
+            "host":"etl.cbtzrylgm8xu.us-east-1.rds.amazonaws.com",
             "port":"5432",
-            "database":"ETL",
-            "user":"airflow",
-            "password":"airflow"
-        },
-        "sqlite":{
-            "database":"sqlite_default.db"
+            "database":"etl",
+            "user":"etlpostgres",
+            "password":"etlpostgres"
         }
     },
     "aws": {
