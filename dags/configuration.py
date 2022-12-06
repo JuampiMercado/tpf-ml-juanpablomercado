@@ -10,7 +10,7 @@ prod_config = {
         #     "password":"airflow"
         # }
         "postgresql":{
-            "host":"10.0.3.63",
+            "host":"etl.cbtzrylgm8xu.us-east-1.rds.amazonaws.com",
             "port":"5432",
             "database":"etl",
             "user":"etlpostgres",
