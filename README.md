@@ -3,7 +3,7 @@ Cloud Data Engineering - Module III - Machine Learning
 
 ## Descripción
 Se ha desarrollado un algoritmo utilizando k-nearest neighbors(KNN) con el fin de obtener recomendaciones de restaurantes/bares. <br>
-Para realizar las recomendaciones el algoritmo recibe el nombre de un lugar como input y, según la valoración de usuarios, busca cuáles son los lugares similares.
+Para realizar las recomendaciones el algoritmo recibe el nombre de un lugar como input y, según la valoración de usuarios, busca cuáles son los lugares que más se asemejen.
 ### 
 El dataset elegido corresponde a restaurantes/bares de méxico.
 
@@ -23,6 +23,7 @@ La solución cuenta con:
 - Una API configurada en ECS, dentro de un auto scaling group, que se accede mediante un application load balancer.
 - RDS con una base de datos postgresql que persiste la información de los lugares, ratings y recomendaciones. Esta información es persistida por el dag de airflow mencionado anteriormente y consultada por la API.
 
+
 ![tpf-module-III-jpm drawio](https://user-images.githubusercontent.com/4196067/205928186-1fe9349a-eb50-4c5d-8567-0b0569d2d5d6.png)
 
 
@@ -33,3 +34,8 @@ La aplicación estará escuchando en el puerto 8080.
 - API: <br>
 En una terminal, acceder a la carpeta API de este repositorio. Allí se encuentran los fuentes necesarios para la ejecución de la API. Ejecutar el comando "bash start.sh", esto verificará si es necesario crear la imagen de docker e iniciará el container.<br> 
 La aplicación estará escuchando en el puerto 80.
+- Datasets: <br>
+El dag está configurado para la lectura de los datasets en un bucket S3 de AWS. Para ejecutarlo localmente se deberá indicar la ruta de los mismos.
+- Base de datos: <br>
+Los archivos configuration.py contienen la información necesaria para establecer la conexión a la base de datos que corresponda.
+
