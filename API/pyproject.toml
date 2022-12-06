@@ -9,9 +9,9 @@ readme = "README.md"
 python = "^3.10"
 fastapi = "^0.88.0"
 pandas = "^1.5.2"
-psycopg2 = "^2.9.5"
 SQLAlchemy = "^1.4.44"
 uvicorn = "^0.20.0"
+psycopg2-binary = "^2.9.5"
 
 
 [build-system]

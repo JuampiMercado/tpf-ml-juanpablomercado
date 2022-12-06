@@ -1,9 +1,9 @@
 import logging
-from datetime import date
 import pandas as pd
 from sqlalchemy import create_engine
-from utils import Utils
-
+from configuration import get_config
+db_params = get_config("db_params")
+db = db_params['postgresql']
 
 class DBManager:
     @staticmethod
@@ -20,8 +20,7 @@ class DBManager:
         sqlalchemy.engine connection
         """
         try:
-            params = Utils.config()
-            s = f"postgresql://{params['user']}:{params['password']}@{params['host']}:{params['port']}/{params['database']}"
+            s = f"postgresql://{db['user']}:{db['password']}@{db['host']}:{db['port']}/{db['database']}"
             engine = create_engine(s)
             return engine.connect()
         except Exception as e:

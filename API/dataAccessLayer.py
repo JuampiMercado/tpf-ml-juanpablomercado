@@ -29,7 +29,5 @@ class DAL:
     
     def getRecommendationByPlaceName(self,placeName):
         s = f"select p2.placeid, p2.name from places p join recommendations r on p.placeid = r.placeid join places p2 on r.recommended_placeid = p2.placeid where upper(p.name) = upper('{placeName}')"
-        print(s)
         df = db.query(s)
-
         return  df.to_dict(orient="records")
