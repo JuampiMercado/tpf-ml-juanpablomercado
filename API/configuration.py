@@ -18,9 +18,9 @@ prod_config = {
         }
     },
     "aws": {
-        "aws_access_key_id":"ASIAUKIPBF3MUB2INKG3",
-        "aws_secret_access_key":"Xo56JoZMQE9JdpwqGvSJWqrroGaUy7+Eo96QH+UA",
-        "aws_session_token":"FwoGZXIvYXdzEOr//////////wEaDN3CNhQVP6jO3CzleiLOAR6PbGexnT146wjx7c0tCRFC14p9s7Syr+cAbmv3QpcSb/e7MZxwyxF5ZERuP3a2KnKBhRnC3+Rsgglx1xdodp2cZccbX+T6Lu2wxBs8rzSIOQIMdrOS1bt5UcJoL2hafCBkcw7KLp+SSGNf+g9iyRWnhgqOfbfsT5EW/muzB7pDOi4H7ahYHVhha9svId81T8FUl6cda/H9nkJqWD+XOUYlT6FnYM9aX/5u9BHo0+1f0nXIpQxmi4166a9MPX8b5AVNC4Z0MgRqPoMZ+5HQKJbAuJwGMi1IkqkXHO3EZcj+ZDUSIs0aXkP76bQ5pEi53Z3dbi2GiTgyna3FPCrU6L3UnM8="
+        "aws_access_key_id":"ASIAUKIPBF3MQURJ7FMA",
+        "aws_secret_access_key":"o4Mo21ET4QV56yKfHVc+2Xp1Zh/dWqrAlwV7YTY",
+        "aws_session_token":"FwoGZXIvYXdzEP3//////////wEaDJxpmkGaH9QchfumgSLOATF8MkEaGmxcC6J9MCdEKWH/UU6NI7CAjv4X75CkZHnw49YFoNBz9RdHNdcMgPiUc9OPZ5jl5LykdlTye4HN0i7pQ9+8x+CxqtH8XRk55l09NNqjWgpELttDInnY8v8fxMo9cVPslEfFC/UBvkqPMH/BRSe/oATee1qPyueTiZFLNPtwn5yazLuBwsV2PRy5d+MhDiB15S9+xYxipwSaYnkECs+f7An8GKEtLB6ltK87aq8yGk1N0glyGvcgHsLD87wrd2ZOSHWX93jqr5ZjKPnTvJwGMi1ce+xSSZdw1uwxQI4RZYa7Jxy5kX38EPNNJzefK/MA7+Jpsulkurmd0w6QJb4="
     }
 }
 
